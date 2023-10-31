@@ -10,9 +10,13 @@ import axios from 'axios';
 export const signInAction = (data, navigate) => async (dispatch) => {
   try {
     dispatch(loadingState());
-    const user = await axios.post('http://localhost:4000/api/user', data, {
-      withCredentials: true,
-    });
+    const user = await axios.post(
+      'https://admin-obai-kharboutli-back-end.onrender.com/api/user',
+      data,
+      {
+        withCredentials: true,
+      }
+    );
     dispatch(signIn(user.data));
     if (user.data) {
       navigate.push('/Admin');
@@ -24,9 +28,12 @@ export const signInAction = (data, navigate) => async (dispatch) => {
 
 export const userAcess = () => async (dispatch) => {
   try {
-    const user = await axios.get('http://localhost:4000/api/user', {
-      withCredentials: true,
-    });
+    const user = await axios.get(
+      'https://admin-obai-kharboutli-back-end.onrender.com/api/user',
+      {
+        withCredentials: true,
+      }
+    );
 
     dispatch(userverfy(user.data));
   } catch (error) {
@@ -37,9 +44,12 @@ export const userLogout = (router) => async (dispatch) => {
   try {
     dispatch(loadingState());
     console.log('hi');
-    await axios.get('http://localhost:4000/api/user/logout', {
-      withCredentials: true,
-    });
+    await axios.get(
+      'https://admin-obai-kharboutli-back-end.onrender.com/api/user/logout',
+      {
+        withCredentials: true,
+      }
+    );
     dispatch(logoutslice());
 
     window.location.reload();

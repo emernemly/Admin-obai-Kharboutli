@@ -12,7 +12,7 @@ export const addPhoto =
       dispatch(loadingState());
 
       const secc = await axios.post(
-        'http://localhost:4000/api/gallery',
+        'https://admin-obai-kharboutli-back-end.onrender.com/api/gallery',
         datas,
         {
           withCredentials: true,
@@ -28,9 +28,12 @@ export const addPhoto =
 export const getPhoto = () => async (dispatch) => {
   try {
     dispatch(loadingState());
-    const images = await axios.get('http://localhost:4000/api/gallery', {
-      withCredentials: true,
-    });
+    const images = await axios.get(
+      'https://admin-obai-kharboutli-back-end.onrender.com/api/gallery',
+      {
+        withCredentials: true,
+      }
+    );
     dispatch(getAll(images.data));
   } catch (error) {
     dispatch(handelError(error.response.data.message));
@@ -40,7 +43,7 @@ export const deletePhoto = (_id) => async (dispatch) => {
   try {
     dispatch(loadingState());
     const secc = await axios.delete(
-      `http://localhost:4000/api/gallery/${_id}`,
+      `https://admin-obai-kharboutli-back-end.onrender.com/api/gallery/${_id}`,
       {
         withCredentials: true,
       }
