@@ -22,7 +22,7 @@ export const signInAction = (data, navigate) => async (dispatch) => {
   }
 };
 
-export const userAcess = () => async (dispatch: any) => {
+export const userAcess = () => async (dispatch) => {
   try {
     const user = await axios.get('http://localhost:4000/api/user', {
       withCredentials: true,
@@ -33,7 +33,7 @@ export const userAcess = () => async (dispatch: any) => {
     dispatch(handelError(error.response.data.message));
   }
 };
-export const userLogout = (router) => async (dispatch: any) => {
+export const userLogout = (router) => async (dispatch) => {
   try {
     dispatch(loadingState());
     console.log('hi');

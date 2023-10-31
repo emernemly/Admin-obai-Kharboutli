@@ -36,7 +36,7 @@ export const getPhoto = () => async (dispatch) => {
     dispatch(handelError(error.response.data.message));
   }
 };
-export const deletePhoto = (_id: string) => async (dispatch) => {
+export const deletePhoto = (_id) => async (dispatch) => {
   try {
     dispatch(loadingState());
     const secc = await axios.delete(
