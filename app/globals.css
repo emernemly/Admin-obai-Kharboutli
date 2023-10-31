@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+section {
+  padding: 50px;
+}
+button:active {
+  opacity: 0.5;
+}
